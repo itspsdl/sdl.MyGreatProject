@@ -1,9 +1,11 @@
-int fib(int n) {
+static int fibi(int n, int a, int b) {
     if (n == 0) {
-        return 0;
-    } else if (n == 1) {
-        return 1;
+        return b;
     } else {
-        return fib(n - 2) + fib(n - 1);
+        return fibi(n - 1, b, a + b);
     }
+}
+
+int fib(int n) {
+    return fibi(n, 1, 0);
 }
